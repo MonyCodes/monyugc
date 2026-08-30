@@ -3,6 +3,7 @@ import { Hero } from "@/components/site/hero"
 import { Stats } from "@/components/site/stats"
 import { TrustedMarquee } from "@/components/site/trusted-marquee"
 import { ProjectsCoverflow } from "@/components/site/projects-coverflow"
+import { Reels } from "@/components/site/reels"
 import { Gear } from "@/components/site/gear"
 import { CaseStudy } from "@/components/site/case-study"
 import { Collab } from "@/components/site/collab"
@@ -17,6 +18,7 @@ export default function Page() {
         <Stats />
         <TrustedMarquee />
         <ProjectsCoverflow />
+        <Reels />
         <Gear />
         <CaseStudy />
         <Collab />

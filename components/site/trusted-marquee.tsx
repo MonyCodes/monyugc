@@ -30,14 +30,14 @@ export function TrustedMarquee() {
         Trusted by
       </p>
 
-      <div className="mt-3 h-[150px] w-full sm:h-[180px]">
+      <div className="mt-4 h-[210px] w-full sm:h-[260px]">
         <MarqueeAlongSvgPath
           path={PATH}
           pathId="trusted-ribbon"
           viewBox="0 0 3340 200"
-          baseVelocity={6}
+          baseVelocity={2.4}
           slowdownOnHover
-          slowDownFactor={0.25}
+          slowDownFactor={0.2}
           draggable
           grabCursor
           dragSensitivity={0.12}
@@ -48,14 +48,16 @@ export function TrustedMarquee() {
             <div
               key={logo.label}
               title={logo.label}
-              className="grid h-16 w-16 place-items-center rounded-2xl border border-border bg-background p-3 shadow-md transition-transform duration-300 ease-out hover:scale-125 sm:h-[4.5rem] sm:w-[4.5rem]"
+              className="group relative grid h-[5.25rem] w-[5.25rem] place-items-center rounded-[1.6rem] bg-gradient-to-b from-background to-card p-3.5 shadow-[0_16px_34px_-12px_rgba(0,0,0,0.5)] ring-1 ring-border transition-transform duration-300 ease-out hover:scale-110 sm:h-28 sm:w-28 sm:rounded-[2rem] sm:p-5"
             >
+              <span className="pointer-events-none absolute inset-0 rounded-[inherit] bg-gradient-to-b from-white/30 to-transparent opacity-70 dark:from-white/10" />
+              <span className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-white/10" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={logo.src}
                 alt={logo.label}
                 draggable={false}
-                className="max-h-full max-w-full object-contain"
+                className="relative max-h-full max-w-full object-contain"
               />
             </div>
           ))}
