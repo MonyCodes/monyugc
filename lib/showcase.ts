@@ -1,0 +1,50 @@
+// Auto-generated from the Canva site's showcase clips. Metadata is illustrative.
+export type Clip = {
+  id: string
+  title: string
+  format: "POV Style" | "B-roll Voiceover" | "Before & After"
+  platform: "TikTok" | "Instagram Reels"
+  views: string
+  featured: boolean
+}
+
+export const clips: Clip[] = [
+  { id: "00eba8d0ecd75f4be4ceb067249d8ab2", title: 'Screen-time detox hook', format: 'POV Style', platform: 'TikTok', views: "450.5K", featured: true },
+  { id: "0683069817af2c9f0282157072a70114", title: 'AI ad in 25 seconds', format: 'B-roll Voiceover', platform: 'Instagram Reels', views: "498K", featured: true },
+  { id: "0e8d38dd363dabb1882c0265b9fa1939", title: 'How I grow clipping pages', format: 'Before & After', platform: 'TikTok', views: "416K", featured: true },
+  { id: "0ebfc0b2d70af0e49bf1861a1331741e", title: '200 to 10k in 2 months', format: 'POV Style', platform: 'Instagram Reels', views: "57.6K", featured: true },
+  { id: "10724b71af0e9f828c285fb6c28976b5", title: 'First thing you grab', format: 'B-roll Voiceover', platform: 'TikTok', views: "51.2K", featured: true },
+  { id: "12e176ba248d190462f8423600b8a186", title: 'Touch grass, seriously', format: 'Before & After', platform: 'Instagram Reels', views: "1.3M", featured: true },
+  { id: "14852c6bb203b947d838dfecac3f4190", title: 'That was the moment', format: 'POV Style', platform: 'TikTok', views: "424K", featured: true },
+  { id: "168fcdae666f86097b5cf692ae125d52", title: 'All the things it replaces', format: 'B-roll Voiceover', platform: 'Instagram Reels', views: "202K", featured: true },
+  { id: "1b6d6c92d024278c9d3823f612ec9d9f", title: 'POV: you found the tool', format: 'Before & After', platform: 'TikTok', views: "188K", featured: true },
+  { id: "1c801abacae20dd1d438323d7b7d8b51", title: 'The before shot', format: 'POV Style', platform: 'Instagram Reels', views: "132K", featured: true },
+  { id: "30aa6ac32fefc85a3e099b758b48021d", title: 'Unrot your feed', format: 'B-roll Voiceover', platform: 'TikTok', views: "96.4K", featured: true },
+  { id: "31376c5f0f77cecf06e83647fb0fd476", title: 'Phone bag breakdown', format: 'Before & After', platform: 'Instagram Reels', views: "88.1K", featured: true },
+  { id: "316405f8505007c074c6324ed331c037", title: 'What actually converts', format: 'POV Style', platform: 'TikTok', views: "15.4K", featured: false },
+  { id: "3df57570bf41dbdd8ce846a0964c9c5a", title: 'Winning ad, remade', format: 'B-roll Voiceover', platform: 'Instagram Reels', views: "22.5K", featured: false },
+  { id: "3ff058acea2b26ecf02c863e61354561", title: 'Retention curve fix', format: 'Before & After', platform: 'TikTok', views: "29.6K", featured: false },
+  { id: "53356d4e6f2f7d57d371ff401ea524b9", title: 'The 3-second rule', format: 'POV Style', platform: 'Instagram Reels', views: "36.7K", featured: false },
+  { id: "59e20aedc13339fe6e12cdc615e0ba35", title: 'Documentation, not decoration', format: 'B-roll Voiceover', platform: 'TikTok', views: "43.8K", featured: false },
+  { id: "5b51f12fd2138384becfb92335fbd7c5", title: 'Client won $1.2M', format: 'Before & After', platform: 'Instagram Reels', views: "50.9K", featured: false },
+  { id: "632d137751d7c39f21f0b48eb54af204", title: 'Grew the page overnight', format: 'POV Style', platform: 'TikTok', views: "57.1K", featured: false },
+  { id: "77f405b34d3eb715f52eaf7c92eb7ad5", title: 'Behind the clip', format: 'B-roll Voiceover', platform: 'Instagram Reels', views: "64.2K", featured: false },
+  { id: "7927215669ffe6894686b210133b721f", title: 'Cold open that landed', format: 'Before & After', platform: 'TikTok', views: "71.3K", featured: false },
+  { id: "79cb289b582765a7beb72f7f00a9634c", title: 'Hook, then payoff', format: 'POV Style', platform: 'Instagram Reels', views: "78.4K", featured: false },
+  { id: "7aa81efe4f6db2266d9c42bb82644b2d", title: 'B-roll that carries VO', format: 'B-roll Voiceover', platform: 'TikTok', views: "85.5K", featured: false },
+  { id: "7e6165130f0876e6c74fcb687249df49", title: 'Same script, new face', format: 'Before & After', platform: 'Instagram Reels', views: "92.6K", featured: false },
+  { id: "80a3ccd4885f84da335313fe54a583b6", title: 'From 24 to 27k', format: 'POV Style', platform: 'TikTok', views: "99.7K", featured: false },
+  { id: "87fb6add23f0986fe4d18b638fa1f4b4", title: 'Ad people rewatch', format: 'B-roll Voiceover', platform: 'Instagram Reels', views: "16.8K", featured: false },
+  { id: "999fdbc7006bcca65f46486bcd631f03", title: 'Tool demo, no studio', format: 'Before & After', platform: 'TikTok', views: "23.9K", featured: false },
+  { id: "a56da0b0f20eb9a22f16503fb107b6f5", title: 'Make it native', format: 'POV Style', platform: 'Instagram Reels', views: "30.1K", featured: false },
+  { id: "ae82997c6b3937082b1a0628b1e60a32", title: 'The scroll-stopper', format: 'B-roll Voiceover', platform: 'TikTok', views: "37.2K", featured: false },
+  { id: "c04752218db48a9aeb46c4787d1e3b0d", title: 'One product shot', format: 'Before & After', platform: 'Instagram Reels', views: "44.3K", featured: false },
+  { id: "cb27c39a3772017ad6ddf2ca20fd6d13", title: 'On-screen line only', format: 'POV Style', platform: 'TikTok', views: "51.4K", featured: false },
+  { id: "cdd1b552681f9300370e33b26ac1de50", title: 'Clear benefit, fast', format: 'B-roll Voiceover', platform: 'Instagram Reels', views: "58.5K", featured: false },
+  { id: "d9e124b5129c427052519f2e06d2d93d", title: 'Proof over promise', format: 'Before & After', platform: 'TikTok', views: "65.6K", featured: false },
+]
+
+export const video = (id: string) => `/showcase/${id}.mp4`
+export const poster = (id: string) => `/posters/${id}.webp`
+
+export const formats = ["POV Style", "B-roll Voiceover", "Before & After"] as const

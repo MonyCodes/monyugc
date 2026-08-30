@@ -1,0 +1,123 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-cream: var(--cream);
+  --color-coffee: var(--coffee);
+  --color-sand: var(--sand);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.4);
+}
+
+:root {
+  /* warm, paper-forward palette — a cleaned-up take on the Canva site */
+  --background: #f4ece0;
+  --foreground: #1c1712;
+  --card: #fbf6ee;
+  --card-foreground: #1c1712;
+  --popover: #fbf6ee;
+  --popover-foreground: #1c1712;
+  --primary: #4b3524;
+  --primary-foreground: #f8f2e8;
+  --secondary: #ece0cf;
+  --secondary-foreground: #1c1712;
+  --muted: #ece0cf;
+  --muted-foreground: #6d5c47;
+  --accent: #c79a63;
+  --accent-foreground: #1c1712;
+  --destructive: #c1553c;
+  --border: #e0d2bd;
+  --input: #e0d2bd;
+  --ring: #c79a63;
+  --radius: 0.9rem;
+
+  --cream: #f4ece0;
+  --coffee: #4b3524;
+  --sand: #c79a63;
+}
+
+:root[data-theme="dark"],
+.dark {
+  --background: #161210;
+  --foreground: #f1e8da;
+  --card: #201a15;
+  --card-foreground: #f1e8da;
+  --popover: #201a15;
+  --popover-foreground: #f1e8da;
+  --primary: #e8d3b3;
+  --primary-foreground: #161210;
+  --secondary: #262019;
+  --secondary-foreground: #f1e8da;
+  --muted: #262019;
+  --muted-foreground: #a3907a;
+  --accent: #c79a63;
+  --accent-foreground: #161210;
+  --destructive: #d76a52;
+  --border: #322a20;
+  --input: #322a20;
+  --ring: #c79a63;
+
+  --cream: #161210;
+  --coffee: #e8d3b3;
+  --sand: #c79a63;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply overflow-x-hidden bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 26s linear infinite;
+}
+
+/* dashed-line motif, a nod to the Canva hero arrow */
+.dashed-rule {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--muted-foreground) 0 10px,
+    transparent 10px 20px
+  );
+}
