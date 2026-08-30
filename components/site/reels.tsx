@@ -59,7 +59,7 @@ function VideoTile({
       onMouseEnter={play}
       onMouseLeave={stop}
       className={cn(
-        "group relative block aspect-[9/16] w-full overflow-hidden rounded-2xl bg-card ring-1 ring-border transition-transform duration-300 ease-out hover:-translate-y-1 hover:ring-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+        "group relative block aspect-[9/16] w-full overflow-hidden rounded-2xl bg-card ring-1 ring-border transition-transform duration-300 ease-out hover:-translate-y-1 hover:ring-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none sm:aspect-auto",
         className
       )}
     >
@@ -127,6 +127,7 @@ export function Reels() {
               meta={meta(c)}
               onOpen={() => setOpen(c.id)}
               autoplay
+              className="sm:h-[clamp(420px,52vw,560px)]"
             />
           </Reveal>
         ))}
@@ -141,6 +142,7 @@ export function Reels() {
               title={c.title}
               meta={meta(c)}
               onOpen={() => setOpen(c.id)}
+              className="sm:h-[clamp(320px,32vw,420px)]"
             />
           </Reveal>
         ))}

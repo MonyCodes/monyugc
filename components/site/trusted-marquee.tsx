@@ -48,7 +48,7 @@ export function TrustedMarquee() {
             <div
               key={logo.label}
               title={logo.label}
-              className="group relative grid h-[5.25rem] w-[5.25rem] place-items-center rounded-[1.6rem] bg-gradient-to-b from-background to-card p-3.5 shadow-[0_16px_34px_-12px_rgba(0,0,0,0.5)] ring-1 ring-border transition-transform duration-300 ease-out hover:scale-110 sm:h-28 sm:w-28 sm:rounded-[2rem] sm:p-5"
+              className="group relative grid h-[5.25rem] w-[5.25rem] place-items-center overflow-hidden rounded-[1.6rem] bg-gradient-to-b from-background to-card p-3.5 shadow-[0_16px_34px_-12px_rgba(0,0,0,0.5)] ring-1 ring-border transition-transform duration-300 ease-out hover:scale-110 sm:h-28 sm:w-28 sm:rounded-[2rem] sm:p-5"
             >
               <span className="pointer-events-none absolute inset-0 rounded-[inherit] bg-gradient-to-b from-white/30 to-transparent opacity-70 dark:from-white/10" />
               <span className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-white/10" />
