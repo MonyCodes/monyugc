@@ -3,45 +3,36 @@
 import * as React from "react"
 import { Volume2, VolumeX, X } from "lucide-react"
 
-import { cn } from "@/lib/utils"
 import {
   CoverflowCarousel,
   type CoverflowSlide,
 } from "@/components/ui/coverflow-carousel"
-import { clips, formats, poster, video } from "@/lib/showcase"
+import { clips, poster, video } from "@/lib/showcase"
 
-type Filter = "All" | (typeof formats)[number]
-const FILTERS: Filter[] = ["All", ...formats]
+const parseViews = (v: string) => {
+  const n = parseFloat(v)
+  if (v.includes("M")) return n * 1_000_000
+  if (v.includes("K")) return n * 1_000
+  return n
+}
 
-const byFeatured = (a: { featured: boolean }, b: { featured: boolean }) =>
-  Number(b.featured) - Number(a.featured)
+// The reel: the five strongest clips, most-viewed first. No filtering UI.
+const BEST = [...clips]
+  .filter((c) => c.featured)
+  .sort((a, b) => parseViews(b.views) - parseViews(a.views))
+  .slice(0, 5)
 
 export function ProjectsCoverflow() {
-  const [filter, setFilter] = React.useState<Filter>("All")
   const [sound, setSound] = React.useState(false)
   const [open, setOpen] = React.useState<string | null>(null)
-  const sectionRef = React.useRef<HTMLElement>(null)
 
-  const list = React.useMemo(
-    () =>
-      [...clips]
-        .filter((c) => filter === "All" || c.format === filter)
-        .sort(byFeatured),
-    [filter]
-  )
-
-  const slides: CoverflowSlide[] = list.map((c) => ({
+  const slides: CoverflowSlide[] = BEST.map((c) => ({
     src: poster(c.id),
     video: video(c.id),
     alt: c.title,
     title: c.title,
     subtitle: `${c.format} · ${c.platform} · ${c.views}`,
   }))
-
-  const pick = (f: Filter) => {
-    setFilter(f)
-    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
-  }
 
   React.useEffect(() => {
     if (!open) return
@@ -58,7 +49,6 @@ export function ProjectsCoverflow() {
 
   return (
     <section
-      ref={sectionRef}
       id="work"
       className="mx-auto max-w-6xl scroll-mt-16 px-4 py-16 sm:py-20"
     >
@@ -72,26 +62,8 @@ export function ProjectsCoverflow() {
         </p>
       </div>
 
-      <div className="mt-7 flex flex-wrap items-center justify-center gap-2">
-        {FILTERS.map((f) => (
-          <button
-            key={f}
-            onClick={() => pick(f)}
-            className={cn(
-              "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
-              filter === f
-                ? "border-primary bg-primary text-primary-foreground"
-                : "border-border bg-background text-muted-foreground hover:text-foreground"
-            )}
-          >
-            {f}
-          </button>
-        ))}
-      </div>
-
-      <div className="mt-4">
+      <div className="mt-8">
         <CoverflowCarousel
-          key={filter}
           slides={slides}
           muted={!sound}
           showCaption
@@ -104,9 +76,9 @@ export function ProjectsCoverflow() {
           gap={0.06}
           cardWidth="clamp(168px, 46vw, 236px)"
           cardHeight="clamp(300px, 82vw, 420px)"
-          label={`Showreel — ${filter}`}
+          label="Showreel"
           cardClassName="ring-1 ring-border"
-          onCardClick={(i) => setOpen(list[i]?.id ?? null)}
+          onCardClick={(i) => setOpen(BEST[i]?.id ?? null)}
           centerOverlay={
             <button
               type="button"
