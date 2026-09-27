@@ -18,7 +18,7 @@ const SITE =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
-  title: "Mony Yang — UGC & short-form ads people actually watch",
+  title: "Media by Mony — UGC & Short-form Ads",
   description:
     "Mony Yang is a UGC creator and short-form editor making POV, b-roll voiceover and before/after ads for tech brands. 200K+ weekly views, 12+ brand deals.",
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Mony Yang" }],
   openGraph: {
-    title: "Mony Yang — UGC & short-form ads people actually watch",
+    title: "Media by Mony — UGC & Short-form Ads",
     description:
       "POV, b-roll voiceover and before/after ads for tech brands. 200K+ weekly views.",
     url: SITE,
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mony Yang — UGC & short-form ads people actually watch",
+    title: "Media by Mony — UGC & Short-form Ads",
     description:
       "POV, b-roll voiceover and before/after ads for tech brands. 200K+ weekly views.",
   },
@@ -52,7 +52,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Mony Yang",
   jobTitle: "UGC Creator & Short-form Editor",
-  email: "biz.monyyang@gmail.com",
+  email: "contact@mediabymony.com",
   url: SITE,
   sameAs: [
     "https://www.tiktok.com/@mony_ugcs",
