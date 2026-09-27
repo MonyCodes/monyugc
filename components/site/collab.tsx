@@ -15,13 +15,12 @@ export function Collab() {
               Let&rsquo;s collab.
             </h2>
             <p className="mt-4 max-w-sm text-primary-foreground/75">
-              Briefs, rates and turnaround on request. Usually replying within a
-              day.
+              Have a project in mind? Contact me! Let’s create something that will make you money.
             </p>
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <a
-                href="mailto:biz.monyyang@gmail.com"
+                href="mailto:contact@mediabymony.com"
                 className="inline-flex items-center gap-2 rounded-full bg-background px-5 py-3 text-sm font-semibold text-foreground transition-transform hover:-translate-y-0.5"
               >
                 <Mail className="size-4" />
@@ -37,7 +36,7 @@ export function Collab() {
               </a>
             </div>
             <p className="mt-4 text-sm text-primary-foreground/70">
-              biz.monyyang@gmail.com
+              contact@mediabymony.com
             </p>
           </div>
 
@@ -45,7 +44,7 @@ export function Collab() {
             <div className="overflow-hidden rounded-[1.6rem] border border-white/15 shadow-xl">
               <Image
                 src={collab}
-                alt="Mony Yang"
+                alt="Media by Mony"
                 placeholder="blur"
                 className="aspect-[4/5] w-full object-cover"
                 sizes="(max-width: 768px) 80vw, 320px"
