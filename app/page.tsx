@@ -4,6 +4,7 @@ import { Stats } from "@/components/site/stats"
 import { TrustedMarquee } from "@/components/site/trusted-marquee"
 import { ProjectsCoverflow } from "@/components/site/projects-coverflow"
 import { Reels } from "@/components/site/reels"
+import { Testimonials } from "@/components/site/testimonials"
 import { Gear } from "@/components/site/gear"
 import { CaseStudy } from "@/components/site/case-study"
 import { Collab } from "@/components/site/collab"
@@ -19,6 +20,7 @@ export default function Page() {
         <TrustedMarquee />
         <ProjectsCoverflow />
         <Reels />
+        <Testimonials />
         <Gear />
         <CaseStudy />
         <Collab />

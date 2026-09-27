@@ -4,6 +4,7 @@ import * as React from "react"
 
 const LINKS = [
   { href: "#work", label: "Work" },
+  { href: "#feedback", label: "Feedback" },
   { href: "#gear", label: "Gear" },
   { href: "#results", label: "Results" },
 ]
