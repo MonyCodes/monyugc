@@ -18,7 +18,7 @@ const SITE =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
-  title: "Mony Yang — UGC & short-form ads people actually watch",
+  title: "Media by Mony — UGC & Short-form Ads",
   description:
     "Mony Yang is a UGC creator and short-form editor making POV, b-roll voiceover and before/after ads for tech brands. 200K+ weekly views, 12+ brand deals.",
   keywords: [
