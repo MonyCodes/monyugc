@@ -20,11 +20,11 @@ export function CaseStudy() {
             Case study
           </p>
           <h2 className="mt-2 max-w-2xl font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Promote.fun, from 200 to a real audience
+            Promote.fun
           </h2>
           <p className="mt-3 max-w-xl text-muted-foreground">
             Two months running the account end to end &mdash; format testing,
-            daily posting, hooks rebuilt around what held retention.
+            daily posting, doubling down on what worked.
           </p>
         </Reveal>
 
