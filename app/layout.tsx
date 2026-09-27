@@ -13,7 +13,8 @@ const display = Bricolage_Grotesque({
   variable: "--font-display",
 })
 
-const SITE = "https://monyugc.vercel.app"
+const SITE =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://monyugc-phi.vercel.app"
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { RefObject, useCallback, useEffect, useRef } from "react"
+import React, { RefObject, useCallback, useEffect, useId, useRef } from "react"
 import {
   motion,
   SpringOptions,
@@ -225,12 +225,14 @@ const MarqueeAlongSvgPath = ({
     [enableRollingZIndex, zIndexBase, zIndexRange]
   )
 
-  // Generate a random ID for the path if not provided
-  const id = pathId || `marquee-path-${Math.random().toString(36).substring(7)}`
+  // Stable fallback ID for the path if not provided
+  const fallbackId = useId()
+  const id = pathId || `marquee-path-${fallbackId.replace(/:/g, "")}`
 
   // Scroll tracking
   const { scrollY } = useScroll({
-    container: (scrollContainer as RefObject<HTMLDivElement | null>) || container,
+    container:
+      (scrollContainer as RefObject<HTMLDivElement | null>) || container,
   })
 
   const scrollVelocity = useVelocity(scrollY)
@@ -385,7 +387,7 @@ const MarqueeAlongSvgPath = ({
           height={height}
           viewBox={viewBox}
           preserveAspectRatio={preserveAspectRatio}
-          className="w-full h-full"
+          className="h-full w-full"
         >
           <path
             id={id}
