@@ -10,14 +10,14 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Working with Mony was an absolute pleasure. He understood the vision for JourneyKeep right away and delivered engaging, high-quality content that felt authentic to our brand. Communication was easy throughout, and we were really happy with the final videos.",
+      "Loved working with Mony. It was an absolute pleasure. He understood the vision for JourneyKeep right away and delivered engaging, high-quality content that felt authentic to our brand. Communication was easy throughout, and we were really happy with the final videos.",
     name: "Garner Hall",
     role: null,
     brand: "JourneyKeep",
   },
   {
     quote:
-      "Mony was great to work with from start to finish. He was professional, responsive, and delivered high-quality UGC that fit exactly what we were looking for at MakeUGC. The content felt natural and performed really well. Would definitely recommend working with him!",
+      "Mony was great to work with from start to finish. He was professional, responsive, and delivered high-quality UGC that fit exactly what we were looking for at MakeUGC. The content felt professional and performed really well. Would definitely recommend working with him!",
     name: "Cas",
     role: "CEO",
     brand: "MakeUGC",
@@ -42,7 +42,7 @@ export function Testimonials() {
             Client feedback
           </p>
           <h2 className="mt-2 max-w-2xl font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-            What brands say after the drop
+            What my clients say:
           </h2>
           <p className="mt-3 max-w-xl text-muted-foreground">
             Straight from the teams I&rsquo;ve shot for &mdash; unedited.
