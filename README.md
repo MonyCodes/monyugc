@@ -14,14 +14,14 @@ npm run dev        # http://localhost:3000
 
 ## Scripts
 
-| Command             | What it does                  |
-| ------------------- | ----------------------------- |
-| `npm run dev`       | Start the dev server          |
-| `npm run build`     | Production build              |
-| `npm run start`     | Serve the production build    |
-| `npm run lint`      | ESLint                        |
-| `npm run typecheck` | TypeScript check              |
-| `npm run format`    | Prettier                      |
+| Command             | What it does               |
+| ------------------- | -------------------------- |
+| `npm run dev`       | Start the dev server       |
+| `npm run build`     | Production build           |
+| `npm run start`     | Serve the production build |
+| `npm run lint`      | ESLint                     |
+| `npm run typecheck` | TypeScript check           |
+| `npm run format`    | Prettier                   |
 
 ## Project structure
 
