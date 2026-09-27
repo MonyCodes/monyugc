@@ -22,9 +22,7 @@ export function Gear() {
         <h2 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
           What&rsquo;s in my bag
         </h2>
-        <p className="mt-3 max-w-lg text-muted-foreground">
-          No studio, no crew. A tight kit that keeps output daily.
-        </p>
+        
       </div>
 
       <div className="mt-12 grid gap-5 sm:grid-cols-3">
