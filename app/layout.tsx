@@ -28,9 +28,13 @@ export const metadata: Metadata = {
     "Instagram Reels",
     "b-roll voiceover",
     "POV ads",
+    "Mony UGC",
+    "Mony",
+    "Traditional UGC",
+    "Media by Mony",
     "Mony Yang",
   ],
-  authors: [{ name: "Mony Yang" }],
+  authors: [{ name: "Media by Mony" }],
   openGraph: {
     title: "Media by Mony — UGC & Short-form Ads",
     description:
