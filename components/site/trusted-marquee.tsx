@@ -4,6 +4,9 @@ import { useEffect, useRef, useState, type PointerEvent } from "react"
 import { Pause, Play } from "lucide-react"
 
 // Each file in /logos is a 144px full-color app icon; the name sits beside it.
+// Bump LOGO_VERSION whenever a logo file is replaced, so browsers (phones
+// especially) fetch the new image instead of showing a cached old one.
+const LOGO_VERSION = 2
 const LOGOS = [
   { src: "/logos/pippit.webp", label: "Pippit" },
   { src: "/logos/superprofile.webp", label: "SuperProfile" },
@@ -39,7 +42,7 @@ function LogoList({ hidden = false }: { hidden?: boolean }) {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={logo.src}
+            src={`${logo.src}?v=${LOGO_VERSION}`}
             alt=""
             width={44}
             height={44}
