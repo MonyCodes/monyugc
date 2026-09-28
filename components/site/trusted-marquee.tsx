@@ -13,7 +13,7 @@ const LOGOS = [
   { src: "/logos/makeugc.webp", label: "MakeUGC" },
   { src: "/logos/omi.webp", label: "Omi" },
   { src: "/logos/evadegpt.webp", label: "EvadeGPT" },
-  { src: "/logos/promote.webp", label: "Promote.fun" },
+  { src: "/logos/promote.webp", label: "Promote" },
   { src: "/logos/unrot.webp", label: "Unrot" },
   { src: "/logos/hixai.webp", label: "HIX.AI" },
   { src: "/logos/airalo.webp", label: "Airalo" },
@@ -35,16 +35,16 @@ function LogoList({ hidden = false }: { hidden?: boolean }) {
       {LOGOS.map((logo) => (
         <li
           key={logo.label}
-          className="flex items-center gap-3 px-6 text-lg font-semibold tracking-[-0.02em] whitespace-nowrap text-foreground/80 sm:px-8 sm:text-xl"
+          className="flex items-center gap-3 px-7 text-xl font-semibold tracking-[-0.02em] whitespace-nowrap text-foreground/80 sm:gap-3.5 sm:px-9 sm:text-2xl"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={logo.src}
             alt=""
-            width={36}
-            height={36}
+            width={44}
+            height={44}
             draggable={false}
-            className="size-8 rounded-[9px] shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.06)] sm:size-9 sm:rounded-[10px] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.12),0_2px_6px_rgba(0,0,0,0.3)]"
+            className="size-9 rounded-[10px] shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.06)] sm:size-11 sm:rounded-[12px] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.12),0_2px_6px_rgba(0,0,0,0.3)]"
           />
           <span>{logo.label}</span>
         </li>
