@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState, type PointerEvent } from "react"
 import { Pause, Play } from "lucide-react"
 
 // Each file in /logos is a 144px full-color app icon; the name sits beside it.
@@ -53,8 +53,81 @@ function LogoList({ hidden = false }: { hidden?: boolean }) {
   )
 }
 
+const SPEED = 50 // px per second while auto-scrolling
+const HOVER_FACTOR = 0.2 // slow down under the cursor, like the old ribbon
+
 export function TrustedMarquee() {
   const [paused, setPaused] = useState(false)
+  const scroller = useRef<HTMLDivElement>(null)
+  const pausedRef = useRef(paused)
+  const hovered = useRef(false)
+  const drag = useRef<{ x: number; left: number } | null>(null)
+
+  useEffect(() => {
+    pausedRef.current = paused
+  }, [paused])
+
+  // Respect reduced motion: start paused, the visitor can still scroll.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setPaused(true)
+    }
+  }, [])
+
+  // Auto-scroll by nudging scrollLeft, so the row stays a real scroll
+  // container: swipe, trackpad and drag all work and auto-scroll carries on
+  // from wherever the visitor leaves it. Two copies of the list let it wrap.
+  useEffect(() => {
+    const el = scroller.current
+    if (!el) return
+    let pos = el.scrollLeft
+    let last = performance.now()
+    let userUntil = 0 // hands off while the visitor is scrolling (keeps iOS momentum)
+    let frame = 0
+
+    const tick = (now: number) => {
+      const dt = Math.min(now - last, 100) / 1000
+      last = now
+      const half = el.scrollWidth / 2
+      // the visitor scrolled: continue from there once they let go
+      if (Math.abs(el.scrollLeft - pos) > 1) {
+        pos = el.scrollLeft
+        userUntil = now + 1200
+      }
+      const userActive = now < userUntil || drag.current !== null
+      if (!pausedRef.current && !userActive) {
+        pos += SPEED * dt * (hovered.current ? HOVER_FACTOR : 1)
+      }
+      // Both copies are identical, so jumping by half is invisible. Keeping
+      // pos away from 0 also lets visitors scroll backwards from the start.
+      let wrapped = false
+      if (half > 0 && pos >= half) {
+        pos -= half
+        wrapped = true
+      } else if (half > 0 && pos < 1) {
+        pos += half
+        wrapped = true
+      }
+      if (!userActive || wrapped) el.scrollLeft = pos
+      frame = requestAnimationFrame(tick)
+    }
+    frame = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frame)
+  }, [])
+
+  // Click-and-drag for mouse users (touch and trackpads scroll natively).
+  const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== "mouse" || !scroller.current) return
+    drag.current = { x: e.clientX, left: scroller.current.scrollLeft }
+    e.currentTarget.setPointerCapture(e.pointerId)
+  }
+  const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
+    if (!drag.current || !scroller.current) return
+    scroller.current.scrollLeft = drag.current.left - (e.clientX - drag.current.x)
+  }
+  const endDrag = () => {
+    drag.current = null
+  }
 
   return (
     <section
@@ -79,16 +152,21 @@ export function TrustedMarquee() {
         </button>
       </div>
 
-      {/* Two copies of the list slide left by 50% for a seamless loop; the
-          edges fade out so logos glide in and out. */}
-      <div className="mt-6 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
-        <div
-          className="animate-marquee flex w-max motion-reduce:[animation-play-state:paused]"
-          style={{
-            animationDuration: "80s",
-            animationPlayState: paused ? "paused" : undefined,
-          }}
-        >
+      {/* Edges fade out so logos glide in and out. */}
+      <div
+        ref={scroller}
+        role="region"
+        tabIndex={0}
+        aria-label="Brands, scrollable"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onMouseEnter={() => (hovered.current = true)}
+        onMouseLeave={() => (hovered.current = false)}
+        className="mt-6 cursor-grab overflow-x-auto overscroll-x-contain [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)] [scrollbar-width:none] select-none active:cursor-grabbing [&::-webkit-scrollbar]:hidden"
+      >
+        <div className="flex w-max">
           <LogoList />
           <LogoList hidden />
         </div>
