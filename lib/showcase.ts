@@ -24,14 +24,14 @@ export const topPerformers: Clip[] = [
 
 // "More reels": the first three form the top row, the rest the gallery.
 export const moreReels: Clip[] = [
-  { id: "hixai", brand: "hixai" },
-  { id: "pippit", brand: "pippit" },
-  { id: "openart", brand: "openart" },
-  { id: "journey-2", brand: "journey" },
   { id: "incogni-1", brand: "incogni" },
   { id: "pixara", brand: "pixara" },
-  { id: "journey-3", brand: "journey" },
+  { id: "openart", brand: "openart" },
+  { id: "hixai", brand: "hixai" },
   { id: "incogni-2", brand: "incogni" },
+  { id: "pippit", brand: "pippit" },
+  { id: "journey-2", brand: "journey" },
+  { id: "journey-3", brand: "journey" },
   { id: "journey-4", brand: "journey" },
 ]
 
