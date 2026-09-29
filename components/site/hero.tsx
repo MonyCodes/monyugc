@@ -12,7 +12,7 @@ export function Hero() {
         <div>
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
-              UGC creator &middot; short-form editor
+              UGC creator &middot; creative strategist &middot; UGC coach
             </span>
           </Reveal>
 
@@ -34,11 +34,11 @@ export function Hero() {
           <Reveal delay={0.15}>
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <a
-                href="mailto:biz.monyyang@gmail.com"
+                href="mailto:contact@mediabymony.com"
                 className="inline-flex max-w-full items-center gap-2 truncate rounded-full bg-primary px-4 py-3 text-[13px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 sm:px-5 sm:text-sm"
               >
                 <Mail className="size-4 shrink-0" />
-                biz.monyyang@gmail.com
+                contact@mediabymony.com
               </a>
               <div className="flex items-center gap-2">
                 <a

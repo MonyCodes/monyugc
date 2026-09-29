@@ -53,13 +53,9 @@ export function ProjectsCoverflow() {
       className="mx-auto max-w-6xl scroll-mt-16 px-4 py-16 sm:py-20"
     >
       <div className="flex flex-col items-center text-center">
-        <h2 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-          The work
+        <h2 className="font-display text-5xl leading-[0.95] font-extrabold tracking-tight sm:text-6xl md:text-7xl">
+          See what&rsquo;s working
         </h2>
-        <p className="mt-3 max-w-lg text-muted-foreground">
-          Swipe the reel. The middle clip plays &mdash; flip on sound, or tap a
-          clip for full screen.
-        </p>
       </div>
 
       <div className="mt-8">

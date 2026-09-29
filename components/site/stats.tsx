@@ -1,10 +1,10 @@
 import { Reveal } from "@/components/site/reveal"
 
 const STATS = [
-  { value: "200K+", label: "Weekly views" },
+  { value: "200K+", label: "Monthly views" },
   { value: "10K", label: "Weekly interactions" },
-  { value: "12+", label: "Brand deals" },
-  { value: "2.2K", label: "Followers" },
+  { value: "21+", label: "Brand deals" },
+  { value: "6.8K", label: "Followers" },
 ]
 
 export function Stats() {
