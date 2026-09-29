@@ -54,7 +54,7 @@ export function ProjectsCoverflow() {
     >
       <div className="flex flex-col items-center text-center">
         <h2 className="font-display text-5xl leading-[0.95] font-extrabold tracking-tight sm:text-6xl md:text-7xl">
-          See what&rsquo;s working
+          Top Performers
         </h2>
       </div>
 

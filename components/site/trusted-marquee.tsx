@@ -6,7 +6,7 @@ import { Pause, Play } from "lucide-react"
 // Each file in /logos is a 144px full-color app icon; the name sits beside it.
 // Bump LOGO_VERSION whenever a logo file is replaced, so browsers (phones
 // especially) fetch the new image instead of showing a cached old one.
-const LOGO_VERSION = 2
+const LOGO_VERSION = 3
 const LOGOS = [
   { src: "/logos/pippit.webp", label: "Pippit" },
   { src: "/logos/superprofile.webp", label: "SuperProfile" },
@@ -47,7 +47,7 @@ function LogoList({ hidden = false }: { hidden?: boolean }) {
             width={44}
             height={44}
             draggable={false}
-            className="size-9 rounded-[10px] shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.06)] sm:size-11 sm:rounded-[12px] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.12),0_2px_6px_rgba(0,0,0,0.3)]"
+            className="size-9 rounded-[10px] shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.06)] sm:size-11 sm:rounded-[12px] dark:shadow-[0_2px_6px_rgba(0,0,0,0.3)]"
           />
           <span>{logo.label}</span>
         </li>
