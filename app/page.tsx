@@ -5,7 +5,6 @@ import { TrustedMarquee } from "@/components/site/trusted-marquee"
 import { ProjectsCoverflow } from "@/components/site/projects-coverflow"
 import { Reels } from "@/components/site/reels"
 import { Testimonials } from "@/components/site/testimonials"
-import { Gear } from "@/components/site/gear"
 import { CaseStudy } from "@/components/site/case-study"
 import { Collab } from "@/components/site/collab"
 import { Footer } from "@/components/site/footer"
@@ -21,7 +20,6 @@ export default function Page() {
         <ProjectsCoverflow />
         <Reels />
         <Testimonials />
-        <Gear />
         <CaseStudy />
         <Collab />
       </main>

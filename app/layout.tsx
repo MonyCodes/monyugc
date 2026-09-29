@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: "Media by Mony — UGC & Short-form Ads",
   description:
-    "Mony Yang is a UGC creator and short-form editor making POV, b-roll voiceover and before/after ads for tech brands. 200K+ weekly views, 12+ brand deals.",
+    "Mony Yang is a UGC creator and short-form editor making POV, b-roll voiceover and before/after ads for tech brands. 200K+ monthly views, 21+ brand deals.",
   keywords: [
     "UGC creator",
     "short-form video",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Media by Mony — UGC & Short-form Ads",
     description:
-      "POV, b-roll voiceover and before/after ads for tech brands. 200K+ weekly views.",
+      "POV, b-roll voiceover and before/after ads for tech brands. 200K+ monthly views.",
     url: SITE,
     siteName: "Mony Yang Portfolio",
     type: "website",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Media by Mony — UGC & Short-form Ads",
     description:
-      "POV, b-roll voiceover and before/after ads for tech brands. 200K+ weekly views.",
+      "POV, b-roll voiceover and before/after ads for tech brands. 200K+ monthly views.",
   },
 }
 
