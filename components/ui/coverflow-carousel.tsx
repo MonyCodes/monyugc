@@ -15,6 +15,8 @@ export interface CoverflowSlide {
   video?: string
   title?: string
   subtitle?: string
+  /** Rendered under the centred card in place of the title, when given. */
+  caption?: React.ReactNode
   meta?: { label: string; value: string }[]
 }
 
@@ -380,14 +382,16 @@ export function CoverflowCarousel({
         )}
       </div>
 
-      {showCaption && active?.title && (
+      {showCaption && (active?.caption || active?.title) && (
         <div
           key={selected}
           className="mt-2 flex animate-in flex-col items-center px-6 duration-300 fade-in"
         >
-          <p className="text-[15px] font-semibold tracking-tight text-foreground">
-            {active.title}
-          </p>
+          {active.caption ?? (
+            <p className="text-[15px] font-semibold tracking-tight text-foreground">
+              {active.title}
+            </p>
+          )}
           {active.subtitle && (
             <p className="mt-1 text-[13px] text-muted-foreground">
               {active.subtitle}
