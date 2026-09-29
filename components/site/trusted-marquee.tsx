@@ -3,53 +3,52 @@
 import { useEffect, useRef, useState, type PointerEvent } from "react"
 import { Pause, Play } from "lucide-react"
 
-// Each file in /logos is a 144px full-color app icon; the name sits beside it.
-// Bump LOGO_VERSION whenever a logo file is replaced, so browsers (phones
-// especially) fetch the new image instead of showing a cached old one.
-const LOGO_VERSION = 3
-const LOGOS = [
-  { src: "/logos/pippit.webp", label: "Pippit" },
-  { src: "/logos/superprofile.webp", label: "SuperProfile" },
-  { src: "/logos/coinviral.webp", label: "CoinViral" },
-  { src: "/logos/journey.webp", label: "Journey" },
-  { src: "/logos/sourceready.webp", label: "Source Ready" },
-  { src: "/logos/makeugc.webp", label: "MakeUGC" },
-  { src: "/logos/omi.webp", label: "Omi" },
-  { src: "/logos/evadegpt.webp", label: "EvadeGPT" },
-  { src: "/logos/promote.webp", label: "Promote" },
-  { src: "/logos/unrot.webp", label: "Unrot" },
-  { src: "/logos/hixai.webp", label: "HIX.AI" },
-  { src: "/logos/airalo.webp", label: "Airalo" },
-  { src: "/logos/whop.webp", label: "Whop" },
-  { src: "/logos/cluely.webp", label: "Cluely" },
-  { src: "/logos/openart.webp", label: "OpenArt" },
-  { src: "/logos/primexbt.webp", label: "PrimeXBT" },
-  { src: "/logos/klap.webp", label: "Klap" },
-  { src: "/logos/incogni.webp", label: "Incogni" },
-  { src: "/logos/vmeg.webp", label: "VMEG" },
-  { src: "/logos/pixara.webp", label: "Pixara" },
-  { src: "/logos/apob.webp", label: "Apob AI" },
-  { src: "/logos/invo.webp", label: "Invo" },
+import { brandLogo, brands, type BrandKey } from "@/lib/brands"
+
+// Brands in the order they scroll by.
+const LOGOS: BrandKey[] = [
+  "pippit",
+  "superprofile",
+  "coinviral",
+  "journey",
+  "sourceready",
+  "makeugc",
+  "omi",
+  "evadegpt",
+  "promote",
+  "unrot",
+  "hixai",
+  "airalo",
+  "whop",
+  "cluely",
+  "openart",
+  "primexbt",
+  "klap",
+  "incogni",
+  "vmeg",
+  "pixara",
+  "apob",
+  "invo",
 ]
 
 function LogoList({ hidden = false }: { hidden?: boolean }) {
   return (
     <ul className="flex shrink-0" aria-hidden={hidden || undefined}>
-      {LOGOS.map((logo) => (
+      {LOGOS.map((key) => (
         <li
-          key={logo.label}
+          key={key}
           className="flex items-center gap-3 px-7 text-xl font-semibold tracking-[-0.02em] whitespace-nowrap text-foreground/80 sm:gap-3.5 sm:px-9 sm:text-2xl"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${logo.src}?v=${LOGO_VERSION}`}
+            src={brandLogo(key)}
             alt=""
             width={44}
             height={44}
             draggable={false}
             className="size-9 rounded-[10px] shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.06)] sm:size-11 sm:rounded-[12px] dark:shadow-[0_2px_6px_rgba(0,0,0,0.3)]"
           />
-          <span>{logo.label}</span>
+          <span>{brands[key]}</span>
         </li>
       ))}
     </ul>

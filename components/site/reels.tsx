@@ -5,22 +5,24 @@ import { Play, X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Reveal } from "@/components/site/reveal"
-import { clips, poster, video } from "@/lib/showcase"
+import { BrandLabel } from "@/components/site/brand-label"
+import type { BrandKey } from "@/lib/brands"
+import { clipMeta, moreReels, poster, video } from "@/lib/showcase"
 
-// Top row: the three lead clips. Gallery: the next nine, as a 3x3 grid.
-const ROW = clips.slice(0, 3)
-const GALLERY = clips.slice(3, 12)
+// Top row: the three lead clips. Gallery: the rest, three to a row.
+const ROW = moreReels.slice(0, 3)
+const GALLERY = moreReels.slice(3)
 
 function VideoTile({
   id,
-  title,
+  brand,
   meta,
   onOpen,
   autoplay = false,
   className,
 }: {
   id: string
-  title: string
+  brand: BrandKey
   meta: string
   onOpen: () => void
   autoplay?: boolean
@@ -75,10 +77,12 @@ function VideoTile({
       />
       <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
       <span className="pointer-events-none absolute inset-x-0 bottom-0 p-3 text-left">
-        <span className="block truncate text-sm font-semibold text-white">
-          {title}
-        </span>
-        <span className="block truncate text-xs text-white/70">{meta}</span>
+        <BrandLabel brand={brand} className="text-sm text-white sm:text-base" />
+        {meta && (
+          <span className="mt-1 block truncate text-xs text-white/70">
+            {meta}
+          </span>
+        )}
       </span>
       <span className="pointer-events-none absolute top-3 right-3 grid size-9 place-items-center rounded-full bg-black/45 text-white opacity-0 backdrop-blur transition group-hover:opacity-100">
         <Play className="size-4 fill-current" />
@@ -101,9 +105,9 @@ export function Reels() {
     }
   }, [open])
 
-  const active = open ? clips.find((c) => c.id === open) : null
-  const meta = (c: (typeof clips)[number]) =>
-    `${c.format} · ${c.platform} · ${c.views}`
+  const active = open ? moreReels.find((c) => c.id === open) : null
+  const meta = (c: (typeof moreReels)[number]) =>
+    [c.title, clipMeta(c)].filter(Boolean).join(" · ")
 
   return (
     <section id="reels" className="mx-auto max-w-6xl scroll-mt-16 px-5 py-20">
@@ -123,7 +127,7 @@ export function Reels() {
           <Reveal key={c.id} delay={i * 0.06}>
             <VideoTile
               id={c.id}
-              title={c.title}
+              brand={c.brand}
               meta={meta(c)}
               onOpen={() => setOpen(c.id)}
               autoplay
@@ -133,13 +137,13 @@ export function Reels() {
         ))}
       </div>
 
-      {/* Nine-up gallery */}
+      {/* Gallery */}
       <div className="mt-6 grid grid-cols-2 gap-4 sm:mt-8 sm:grid-cols-3">
         {GALLERY.map((c, i) => (
           <Reveal key={c.id} delay={(i % 3) * 0.05}>
             <VideoTile
               id={c.id}
-              title={c.title}
+              brand={c.brand}
               meta={meta(c)}
               onOpen={() => setOpen(c.id)}
               className="sm:h-[clamp(320px,32vw,420px)]"
@@ -174,9 +178,9 @@ export function Reels() {
               playsInline
               className="w-full rounded-2xl bg-black shadow-2xl"
             />
-            <div className="mt-3 flex items-center justify-between text-sm text-white">
-              <span className="font-medium">{active.title}</span>
-              <span className="text-white/60">{meta(active)}</span>
+            <div className="mt-3 flex items-center justify-between gap-3 text-sm text-white">
+              <BrandLabel brand={active.brand} className="text-base" />
+              <span className="truncate text-white/60">{meta(active)}</span>
             </div>
           </div>
         </div>

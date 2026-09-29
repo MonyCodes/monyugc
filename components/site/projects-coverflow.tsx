@@ -7,20 +7,11 @@ import {
   CoverflowCarousel,
   type CoverflowSlide,
 } from "@/components/ui/coverflow-carousel"
-import { clips, poster, video } from "@/lib/showcase"
+import { BrandLabel } from "@/components/site/brand-label"
+import { brands } from "@/lib/brands"
+import { clipMeta, poster, topPerformers, video } from "@/lib/showcase"
 
-const parseViews = (v: string) => {
-  const n = parseFloat(v)
-  if (v.includes("M")) return n * 1_000_000
-  if (v.includes("K")) return n * 1_000
-  return n
-}
-
-// The reel: the five strongest clips, most-viewed first. No filtering UI.
-const BEST = [...clips]
-  .filter((c) => c.featured)
-  .sort((a, b) => parseViews(b.views) - parseViews(a.views))
-  .slice(0, 5)
+const BEST = topPerformers
 
 export function ProjectsCoverflow() {
   const [sound, setSound] = React.useState(false)
@@ -29,9 +20,15 @@ export function ProjectsCoverflow() {
   const slides: CoverflowSlide[] = BEST.map((c) => ({
     src: poster(c.id),
     video: video(c.id),
-    alt: c.title,
-    title: c.title,
-    subtitle: `${c.format} · ${c.platform} · ${c.views}`,
+    alt: `${brands[c.brand]} ad`,
+    caption: (
+      <BrandLabel
+        brand={c.brand}
+        className="text-lg text-foreground/90 sm:text-xl"
+        iconClassName="size-8 sm:size-9 rounded-[9px] sm:rounded-[10px]"
+      />
+    ),
+    subtitle: [c.title, clipMeta(c)].filter(Boolean).join(" · ") || undefined,
   }))
 
   React.useEffect(() => {
@@ -45,7 +42,7 @@ export function ProjectsCoverflow() {
     }
   }, [open])
 
-  const activeClip = open ? clips.find((c) => c.id === open) : null
+  const activeClip = open ? BEST.find((c) => c.id === open) : null
 
   return (
     <section
@@ -121,10 +118,12 @@ export function ProjectsCoverflow() {
               playsInline
               className="w-full rounded-2xl bg-black shadow-2xl"
             />
-            <div className="mt-3 flex items-center justify-between text-sm text-white">
-              <span className="font-medium">{activeClip.title}</span>
-              <span className="text-white/60">
-                {activeClip.format} · {activeClip.platform} · {activeClip.views}
+            <div className="mt-3 flex items-center justify-between gap-3 text-sm text-white">
+              <BrandLabel brand={activeClip.brand} className="text-base" />
+              <span className="truncate text-white/60">
+                {[activeClip.title, clipMeta(activeClip)]
+                  .filter(Boolean)
+                  .join(" · ")}
               </span>
             </div>
           </div>
