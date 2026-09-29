@@ -9,10 +9,6 @@ import { BrandLabel } from "@/components/site/brand-label"
 import type { BrandKey } from "@/lib/brands"
 import { clipMeta, moreReels, poster, video } from "@/lib/showcase"
 
-// Top row: the three lead clips. Gallery: the rest, three to a row.
-const ROW = moreReels.slice(0, 3)
-const GALLERY = moreReels.slice(3)
-
 function VideoTile({
   id,
   brand,
@@ -103,34 +99,36 @@ export function Reels() {
         </p>
       </div>
 
-      {/* Three-up feature row */}
-      <div className="mt-10 grid gap-5 sm:grid-cols-3">
-        {ROW.map((c, i) => (
-          <Reveal key={c.id} delay={i * 0.06}>
-            <VideoTile
-              id={c.id}
-              brand={c.brand}
-              meta={meta(c)}
-              onOpen={() => setOpen(c.id)}
-              className="sm:h-[clamp(420px,52vw,560px)]"
-            />
-          </Reveal>
-        ))}
-      </div>
-
-      {/* Gallery */}
-      <div className="mt-6 grid grid-cols-2 gap-4 sm:mt-8 sm:grid-cols-3">
-        {GALLERY.map((c, i) => (
-          <Reveal key={c.id} delay={(i % 3) * 0.05}>
-            <VideoTile
-              id={c.id}
-              brand={c.brand}
-              meta={meta(c)}
-              onOpen={() => setOpen(c.id)}
-              className="sm:h-[clamp(320px,32vw,420px)]"
-            />
-          </Reveal>
-        ))}
+      {/* One grid so phones get an even two-up layout. On larger screens the
+          first row (the three picks) is taller than the rest. */}
+      <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5">
+        {moreReels.map((c, i) => {
+          const pick = i < 3
+          // An odd clip left alone on the last two-up row sits centred.
+          const lone = i === moreReels.length - 1 && moreReels.length % 2 === 1
+          return (
+            <Reveal
+              key={c.id}
+              delay={(i % 3) * 0.05}
+              className={cn(
+                lone &&
+                  "col-span-2 mx-auto w-[calc(50%-0.5rem)] sm:col-span-1 sm:mx-0 sm:w-auto"
+              )}
+            >
+              <VideoTile
+                id={c.id}
+                brand={c.brand}
+                meta={meta(c)}
+                onOpen={() => setOpen(c.id)}
+                className={
+                  pick
+                    ? "sm:h-[clamp(420px,52vw,560px)]"
+                    : "sm:h-[clamp(320px,32vw,420px)]"
+                }
+              />
+            </Reveal>
+          )
+        })}
       </div>
 
       {active && (
