@@ -18,38 +18,20 @@ function VideoTile({
   brand,
   meta,
   onOpen,
-  autoplay = false,
   className,
 }: {
   id: string
   brand: BrandKey
   meta: string
   onOpen: () => void
-  autoplay?: boolean
   className?: string
 }) {
   const ref = React.useRef<HTMLVideoElement>(null)
 
-  // Autoplay the row tiles while they are on screen; pause when they leave.
-  React.useEffect(() => {
-    if (!autoplay) return
-    const el = ref.current
-    if (!el) return
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) el.play().catch(() => {})
-        else el.pause()
-      },
-      { threshold: 0.5 }
-    )
-    io.observe(el)
-    return () => io.disconnect()
-  }, [autoplay])
-
   const play = () => ref.current?.play().catch(() => {})
   const stop = () => {
     const el = ref.current
-    if (!el || autoplay) return
+    if (!el) return
     el.pause()
     el.currentTime = 0
   }
@@ -75,8 +57,8 @@ function VideoTile({
         preload="none"
         className="h-full w-full object-cover"
       />
-      <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
-      <span className="pointer-events-none absolute inset-x-0 bottom-0 p-3 text-left">
+      <span className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-black/0 to-black/0" />
+      <span className="pointer-events-none absolute inset-x-0 top-0 p-3 pr-14 text-left">
         <BrandLabel brand={brand} className="text-sm text-white sm:text-base" />
         {meta && (
           <span className="mt-1 block truncate text-xs text-white/70">
@@ -130,7 +112,6 @@ export function Reels() {
               brand={c.brand}
               meta={meta(c)}
               onOpen={() => setOpen(c.id)}
-              autoplay
               className="sm:h-[clamp(420px,52vw,560px)]"
             />
           </Reveal>
