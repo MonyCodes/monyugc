@@ -57,8 +57,8 @@ export default function TermsPage() {
           <h2 className="font-semibold text-foreground">Contact</h2>
           <p className="mt-2">
             Questions about these terms or a collaboration:{" "}
-            <a className="underline" href="mailto:biz.monyyang@gmail.com">
-              biz.monyyang@gmail.com
+            <a className="underline" href="mailto:contact@mediabymony.com">
+              contact@mediabymony.com
             </a>
             .
           </p>
