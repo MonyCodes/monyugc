@@ -28,8 +28,8 @@ export default function PrivacyPage() {
           <p className="mt-2">
             This is the personal portfolio of Mony Yang. Questions about privacy
             can go to{" "}
-            <a className="underline" href="mailto:biz.monyyang@gmail.com">
-              biz.monyyang@gmail.com
+            <a className="underline" href="mailto:contact@mediabymony.com">
+              contact@mediabymony.com
             </a>
             .
           </p>
