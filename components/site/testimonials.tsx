@@ -12,8 +12,8 @@ const TESTIMONIALS = [
     quote:
       "Working with Mony was a great experience from start to finish. He was responsive, easy to communicate with, and knew how to capitalize on what worked while still bringing a unique spin to each creative for the brand. He not only executed on what we asked but also brought strong ideas to the table and was always willing to iterate based on results. I’d definitely recommend him to anyone looking for someone reliable, creative, and easy to work with.",
     name: "Garner Hall",
-    role: "Research Collaboration",
-    brand: "Brain Nourishment, Journey",
+    role: "Research Collaborator",
+    brand: "Journey",
   },
   {
     quote:
