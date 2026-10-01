@@ -69,7 +69,7 @@ export function Testimonials() {
                 </blockquote>
 
                 <figcaption className="relative mt-auto flex items-center gap-3 border-t border-border pt-5">
-                  <span className="relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-[0.9rem] bg-gradient-to-b from-background to-muted font-display text-sm font-extrabold tracking-tight ring-1 ring-border">
+                  <span className="relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-[0.6rem] bg-gradient-to-b from-background to-muted font-display text-sm font-extrabold tracking-tight ring-1 ring-border">
                     <span className="pointer-events-none absolute inset-0 rounded-[inherit] bg-gradient-to-b from-white/30 to-transparent opacity-70 dark:from-white/10" />
                     <span className="relative">{initials(t.name)}</span>
                   </span>

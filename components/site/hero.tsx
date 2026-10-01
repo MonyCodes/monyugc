@@ -68,8 +68,8 @@ export function Hero() {
 
         <Reveal delay={0.1} className="relative">
           <div className="relative mx-auto w-full max-w-xs">
-            <div className="absolute -inset-3 -rotate-2 rounded-[2rem] bg-accent/25" />
-            <div className="relative overflow-hidden rounded-[1.6rem] border border-border bg-card shadow-xl">
+            <div className="absolute -inset-3 -rotate-2 rounded-[1.25rem] bg-accent/25" />
+            <div className="relative overflow-hidden rounded-[1rem] border border-border bg-card shadow-xl">
               <Image
                 src={about}
                 alt="Mony Yang"

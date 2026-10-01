@@ -8,7 +8,7 @@ import collab from "@/public/photos/collab.webp"
 export function Collab() {
   return (
     <section id="collab" className="mx-auto max-w-6xl px-5 py-20">
-      <Reveal className="overflow-hidden rounded-[2rem] border border-border bg-primary text-primary-foreground">
+      <Reveal className="overflow-hidden rounded-[1.25rem] border border-border bg-primary text-primary-foreground">
         <div className="grid items-center gap-8 p-8 md:grid-cols-2 md:p-12">
           <div>
             <h2 className="font-display text-5xl font-extrabold tracking-tight sm:text-6xl">
@@ -41,7 +41,7 @@ export function Collab() {
           </div>
 
           <div className="relative mx-auto w-full max-w-xs">
-            <div className="overflow-hidden rounded-[1.6rem] border border-white/15 shadow-xl">
+            <div className="overflow-hidden rounded-[1rem] border border-white/15 shadow-xl">
               <Image
                 src={collab}
                 alt="Media by Mony"
